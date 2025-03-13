@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./Contact.css";
+import { BE_URL } from "../../utils/Constants";
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -21,7 +22,7 @@ const Contact: React.FC = () => {
     setStatus("Sending...");
 
     try {
-      await axios.post("http://localhost:5000/send-email", formData);
+      await axios.post(`${BE_URL}/send-email`, formData);
       setStatus("Message sent successfully!");
       setFormData({ name: "", email: "", title: "", message: "" });
     } catch (error) {

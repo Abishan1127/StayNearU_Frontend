@@ -3,6 +3,7 @@ import { Elements, useStripe, useElements, CardElement } from "@stripe/react-str
 import axios from "axios";
 import { stripePromise } from "../stripeConfig";
 import "./Checkout.css";
+import { BE_URL } from "./utils/Constants";
 
 
 interface CheckoutProps {
@@ -63,7 +64,7 @@ const CheckoutForm: React.FC<CheckoutProps> = ({ userId, boardingId, roomId, sta
   
   
       // ✅ Step 2: Request Payment Intent from Backend
-      const { data } = await axios.post("http://localhost:5000/api/payments/create-payment-intent", {
+      const { data } = await axios.post(`${BE_URL}/payments/create-payment-intent`, {
         amount: roomPrice,
         currency: "lkr",
         user_id: userId,

@@ -5,6 +5,8 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "./Roombooking.css";
 import CheckoutPage from "../../Checkout";
+import { BE_URL } from "../../utils/Constants";
+
 
 // Define interfaces for boarding and room
 interface Boarding {
@@ -41,7 +43,7 @@ const Roombooking = () => {
     // Fetch boardings related to the selected university
     useEffect(() => {
         if (!uni_id) return;
-        axios.get(`http://localhost:5000/api/boarding?uni_id=${uni_id}`)
+        axios.get(`${BE_URL}/boarding?uni_id=${uni_id}`)
             .then(response => setBoardingList(response.data))
             .catch(error => console.error("Error fetching boarding details:", error));
     }, [uni_id]);
@@ -49,7 +51,7 @@ const Roombooking = () => {
     // Fetch rooms when a boarding is selected
     useEffect(() => {
         if (!selectedBoarding) return;
-        axios.get(`http://localhost:5000/api/room?board_id=${selectedBoarding.board_id}`)
+        axios.get(`${BE_URL}/room?board_id=${selectedBoarding.board_id}`)
             .then(response => setRoomList(response.data))
             .catch(error => console.error("Error fetching room details:", error));
     }, [selectedBoarding]);
@@ -141,7 +143,7 @@ const Roombooking = () => {
                                 className={`boarding-item ${selectedBoarding?.board_id === boarding.board_id ? "selected" : ""}`}
                                 onClick={() => handleSelectBoarding(boarding)}
                             >
-                                <img src={`http://localhost:5000${boarding.board_image}`} alt={boarding.board_name} className="boarding-image" />
+                                <img src={`${BE_URL}${boarding.board_image}`} alt={boarding.board_name} className="boarding-image" />
                                 <h4>{boarding.board_name}</h4>
                             </div>
                         ))}
@@ -162,7 +164,7 @@ const Roombooking = () => {
                                 className={`room-item ${selectedRoom?.room_id === room.room_id ? "selected" : ""}`}
                                 onClick={() => handleSelectRoom(room)}
                             >
-                                <img src={`http://localhost:5000${room.room_image}`} alt="Room" />
+                                <img src={`${BE_URL}${room.room_image}`} alt="Room" />
                                 <h3>{room.board_name}</h3>
                                 <h2>Room {room.room_id}</h2>
                             </div>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./About.css";
+import { BE_URL } from "../../utils/Constants";
 
 interface Review {
   id: number;
@@ -14,7 +15,7 @@ const About: React.FC = () => {
   const [showMore, setShowMore] = useState(false);
   const [reviews, setReviews] = useState<Review[]>([]);
   const [newReview, setNewReview] = useState("");
-  const [user, setUser] = useState<{ loggedIn: boolean; name: string }>({
+  const [user] = useState<{ loggedIn: boolean; name: string }>({
     loggedIn: true,
     name: "John Doe",
   });
@@ -25,7 +26,7 @@ const About: React.FC = () => {
 
   const fetchReviews = async () => {
     try {
-      const response = await axios.get<Review[]>("http://localhost:5000/api/reviews");
+      const response = await axios.get<Review[]>(`${BE_URL}/reviews`);
       setReviews(response.data);
     } catch (error) {
       console.error("Error fetching reviews", error);
@@ -39,7 +40,7 @@ const About: React.FC = () => {
   const handleReviewSubmit = async () => {
     if (newReview.trim() !== "") {
       try {
-        const response = await axios.post<Review>("http://localhost:5000/api/reviews", {
+        const response = await axios.post<Review>(`${BE_URL}/reviews`, {
           name: user.name,
           location: "📍 Your Location",
           stars: "★★★★☆",

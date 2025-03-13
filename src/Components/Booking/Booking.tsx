@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { BE_URL } from "../../utils/Constants";
+
 
 interface Boarding {
   board_id: number;
@@ -22,12 +24,12 @@ const Booking = () => {
   const [amount, setAmount] = useState<number>(0);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/boarding").then((res) => setBoardings(res.data));
+    axios.get(`${BE_URL}/boarding`).then((res) => setBoardings(res.data));
   }, []);
 
   useEffect(() => {
     if (selectedBoarding) {
-      axios.get(`http://localhost:5000/api/rooms/${selectedBoarding}`).then((res) => setRooms(res.data));
+      axios.get(`${BE_URL}/rooms/${selectedBoarding}`).then((res) => setRooms(res.data));
     }
   }, [selectedBoarding]);
 
@@ -38,7 +40,7 @@ const Booking = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:5000/api/bookings", {
+      const response = await axios.post(`${BE_URL}/bookings`, {
         user_id: 1, // Hardcoded for now; replace with authenticated user ID
         board_id: selectedBoarding,
         room_id: selectedRoom,

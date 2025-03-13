@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Login.css";
 import imlogin from "../../assets/login-banner.jpeg"
+import { BE_URL } from "../../utils/Constants";
+
 
 interface LoginProps {
   setAuthenticated: (value: boolean) => void;
@@ -28,7 +30,7 @@ const Login: React.FC<LoginProps> = ({ setAuthenticated }) => {
     setError(null);
 
     try {
-        const response = await axios.post("http://localhost:5000/api/users/login", formData, {
+        const response = await axios.post(`${BE_URL}/users/login`, formData, {
             withCredentials: true, // ✅ Include Cookies
         });
 

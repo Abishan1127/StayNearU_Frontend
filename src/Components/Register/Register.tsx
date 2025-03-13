@@ -2,6 +2,8 @@ import { useState } from "react";
 import axios from "axios";
 import "./Register.css";
 import registerim from "../../assets/login-banner.jpeg";
+import { BE_URL } from "../../utils/Constants";
+
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -51,7 +53,7 @@ const Register = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/users/register", 
+        `${BE_URL}/users/register`, 
         formData,
         { withCredentials: true } // ✅ Allow cookies
       );
