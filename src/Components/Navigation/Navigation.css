@@ -1,0 +1,66 @@
+/* Navigation.css */
+
+.main {
+  display: flex;
+  justify-content: space-between; /* Aligns logo and navigation */
+  align-items: center;
+  background-color: #333;
+  padding: 1rem 2rem;
+  height: 80px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.logo {
+  height: 60px;
+  border-radius: 10px;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center; /* Aligns all items on the same line */
+  gap: 2rem; /* Keeps items evenly spaced */
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  display: flex;
+  align-items: center; /* Ensures vertical alignment */
+}
+
+.nav-item {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+}
+
+.nav-item:hover {
+  text-decoration: underline;
+  color: yellow;
+}
+
+.logout-button {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s ease-in-out;
+}
+
+.logout-button:hover {
+  background-color: #c0392b;
+}
