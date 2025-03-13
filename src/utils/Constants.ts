@@ -1,1 +1,1 @@
-export const BE_URL = "http://localhost:5000/api"
+export const BE_URL = import.meta.env.VITE_BE_URL
