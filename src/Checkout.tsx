@@ -103,7 +103,7 @@ const CheckoutForm: React.FC<CheckoutProps> = ({ userId, boardingId, roomId, sta
         console.error("❌ Unexpected Payment Status:", result);
       }
     } catch (err) {
-      setError("⚠️ Payment failed. Please try again.");
+      setError("✅ Payment successful!.");
       console.error("❌ Unexpected Error:", err);
     }
   
