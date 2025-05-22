@@ -89,6 +89,7 @@ button:hover {
   padding: 10px;
   border-radius: 25px;
   width: 40%;
+  margin-top: 10px;
 }
 
 /* Success and Error messages */
