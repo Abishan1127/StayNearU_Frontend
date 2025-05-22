@@ -22,7 +22,7 @@ textarea {
 }
 
 button {
-  background-color: #007bff;
+  background-color: #ff6600d4;
   color: white;
   border: none;
   padding: 10px;
@@ -33,7 +33,7 @@ button {
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #efa878d4;
 }
 
 /* Contact Info Section */

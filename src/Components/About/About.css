@@ -18,7 +18,7 @@
 }
 
 .read-more-btn {
-  background-color:#007bff;
+  background-color:#ff6600d4;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -27,7 +27,7 @@
 }
 
 .read-more-btn:hover {
-  background-color: #cc5500;
+  background-color: #ad6a3eed;
 }
 
 .extra-info {
@@ -88,7 +88,7 @@
 }
 
 .submit-review-btn {
-  background-color: #007bff;
+  background-color: #ff6600d4;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -97,5 +97,5 @@
 }
 
 .submit-review-btn:hover {
-  background-color: #218838;
+  background-color: #ad6a3eed;
 }
